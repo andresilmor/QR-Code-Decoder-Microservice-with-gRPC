@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package qrCodeDecoder;
+
+service QRCodeDecoderService {
+    rpc QRCodeDecoder (DecodeRequest) returns (QRCodeContent) { }
+}
+
+message DecodeRequest {
+    bytes image = 1;
+
+}
+
+message QRCodeContent {
+    string content = 1;
+
+}
