@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package qrCode;
+
+option java_multiple_files = true; // What happens if ther enums or mulple classes | False: just one file | True: multiple files
+option java_package = "generated";  // Name of the package where will be the generated classes from the proto file
+option java_outer_classname = "QRCodeProtos"; // Name of the class on the wrapper, not important, default will be the defined on line 3
+
+service QRCodeService {
+  rpc QRCodeDecoder(DecodeRequest) returns (QRCodeContent);
+}
+
+message DecodeRequest {
+  bytes image = 1;
+
+}
+
+message QRCodeContent {
+  string content = 1;
+
+}
