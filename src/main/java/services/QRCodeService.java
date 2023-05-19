@@ -23,13 +23,17 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
     @Override
     public void qRCodeDecoder(DecodeRequest request, StreamObserver<QRCodeContent> responseObserver) {
-
+        System.out.println("1");
         ByteString byteStringImage = request.getImage();
 
         byte[] byteArrayImage = byteStringImage.toByteArray();
 
+        System.out.println("2");
         InputStream is = new ByteArrayInputStream(byteArrayImage);
         QRCodeContent.Builder response = QRCodeContent.newBuilder();
+
+
+        System.out.println("3");
 
         try {
             BufferedImage bufferedImage = ImageIO.read(is);
@@ -40,6 +44,8 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
             detector.process(grayImage);
             List<QrCode> detections = detector.getDetections();
+
+            System.out.println("4");
 
             String qrCodesDetected = "{ \"detections\": [ ";
 
@@ -52,11 +58,14 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
             qrCodesDetected += " ] }";
 
+            System.out.println(qrCodesDetected);
+            System.out.println("3");
+
             response.setContent(qrCodesDetected);
 
         } catch (IOException e) {
             response.setContent("{ \"message\" : \"Image.IO.read() error\" }");
-
+            System.out.println("mennn");
             throw new RuntimeException(e);
         }
 
