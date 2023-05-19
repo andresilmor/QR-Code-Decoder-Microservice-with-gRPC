@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60c8c8ae-9096-4f69-b0aa-f6196ef3f4b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/ApplicationServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/DecodeRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/DecodeRequestOrBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeContent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeContentOrBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeProtos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeServiceGrpc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/services/QRCodeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/proto/QRCodeService.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/img_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2Py2MpcbGRSTZNjEeZiGvHvxLVy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,7 +35,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/MyFiles/Works/GreenHealth_Thesis/01 Investigation Project/Server/dev-MS_QRCodeReader"
+    "last_opened_file_path": "D:/MyFiles/Works/GreenHealth_Thesis/01 Investigation Project/Server/dev-MS_QRCodeReader",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -97,5 +84,10 @@
       <updated>1684414957654</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
 </project>
