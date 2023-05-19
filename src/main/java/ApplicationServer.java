@@ -70,6 +70,8 @@ public class ApplicationServer {
 
         qrCodesDedtected += " ] }";
 
+        System.out.println(qrCodesDedtected);
+
         // List of objects it thinks might be a QR Code but failed for various reasons
         List<QrCode> failures = detector.getFailures();
         g2.setColor(Color.RED);
@@ -79,8 +81,8 @@ public class ApplicationServer {
                 continue;
 
         }
-
         */
+
 
         Server server = ServerBuilder.forPort(50060).addService(new QRCodeService()).build();
 

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="60c8c8ae-9096-4f69-b0aa-f6196ef3f4b0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/ApplicationServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/DecodeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/DecodeRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeContentOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeProtos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/generated/QRCodeServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/java/services/QRCodeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/proto/QRCodeService.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRCode Microservice/src/main/resources/img_1.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Py2MpcbGRSTZNjEeZiGvHvxLVy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/MyFiles/Works/GreenHealth_Thesis/01 Investigation Project/Server/dev-MS_QRCodeReader"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MyFiles\Works\GreenHealth_Thesis\01 Investigation Project\Server\dev-MS_QRCodeReader\QRCode Microservice\src\main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ApplicationServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ApplicationServer" />
+      <module name="QRCodeMicroservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="QRCode Microservice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="QRCode Microservice" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ApplicationServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60c8c8ae-9096-4f69-b0aa-f6196ef3f4b0" name="Changes" comment="" />
+      <created>1684414957654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684414957654</updated>
+    </task>
+    <servers />
+  </component>
+</project>
