@@ -28,35 +28,35 @@ public final class QRCodeServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<generated.DecodeRequest,
-      generated.QRCodeContent> getQRCodeDecoderMethod;
+      generated.QRCodeContent> getQRCodeDecodeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "QRCodeDecoder",
+      fullMethodName = SERVICE_NAME + '/' + "QRCodeDecode",
       requestType = generated.DecodeRequest.class,
       responseType = generated.QRCodeContent.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<generated.DecodeRequest,
-      generated.QRCodeContent> getQRCodeDecoderMethod() {
-    io.grpc.MethodDescriptor<generated.DecodeRequest, generated.QRCodeContent> getQRCodeDecoderMethod;
-    if ((getQRCodeDecoderMethod = QRCodeServiceGrpc.getQRCodeDecoderMethod) == null) {
+      generated.QRCodeContent> getQRCodeDecodeMethod() {
+    io.grpc.MethodDescriptor<generated.DecodeRequest, generated.QRCodeContent> getQRCodeDecodeMethod;
+    if ((getQRCodeDecodeMethod = QRCodeServiceGrpc.getQRCodeDecodeMethod) == null) {
       synchronized (QRCodeServiceGrpc.class) {
-        if ((getQRCodeDecoderMethod = QRCodeServiceGrpc.getQRCodeDecoderMethod) == null) {
-          QRCodeServiceGrpc.getQRCodeDecoderMethod = getQRCodeDecoderMethod = 
+        if ((getQRCodeDecodeMethod = QRCodeServiceGrpc.getQRCodeDecodeMethod) == null) {
+          QRCodeServiceGrpc.getQRCodeDecodeMethod = getQRCodeDecodeMethod = 
               io.grpc.MethodDescriptor.<generated.DecodeRequest, generated.QRCodeContent>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "qrCode.QRCodeService", "QRCodeDecoder"))
+                  "qrCode.QRCodeService", "QRCodeDecode"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   generated.DecodeRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   generated.QRCodeContent.getDefaultInstance()))
-                  .setSchemaDescriptor(new QRCodeServiceMethodDescriptorSupplier("QRCodeDecoder"))
+                  .setSchemaDescriptor(new QRCodeServiceMethodDescriptorSupplier("QRCodeDecode"))
                   .build();
           }
         }
      }
-     return getQRCodeDecoderMethod;
+     return getQRCodeDecodeMethod;
   }
 
   /**
@@ -88,20 +88,20 @@ public final class QRCodeServiceGrpc {
 
     /**
      */
-    public void qRCodeDecoder(generated.DecodeRequest request,
+    public void qRCodeDecode(generated.DecodeRequest request,
         io.grpc.stub.StreamObserver<generated.QRCodeContent> responseObserver) {
-      asyncUnimplementedUnaryCall(getQRCodeDecoderMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getQRCodeDecodeMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getQRCodeDecoderMethod(),
+            getQRCodeDecodeMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 generated.DecodeRequest,
                 generated.QRCodeContent>(
-                  this, METHODID_QRCODE_DECODER)))
+                  this, METHODID_QRCODE_DECODE)))
           .build();
     }
   }
@@ -126,10 +126,10 @@ public final class QRCodeServiceGrpc {
 
     /**
      */
-    public void qRCodeDecoder(generated.DecodeRequest request,
+    public void qRCodeDecode(generated.DecodeRequest request,
         io.grpc.stub.StreamObserver<generated.QRCodeContent> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getQRCodeDecoderMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getQRCodeDecodeMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -153,9 +153,9 @@ public final class QRCodeServiceGrpc {
 
     /**
      */
-    public generated.QRCodeContent qRCodeDecoder(generated.DecodeRequest request) {
+    public generated.QRCodeContent qRCodeDecode(generated.DecodeRequest request) {
       return blockingUnaryCall(
-          getChannel(), getQRCodeDecoderMethod(), getCallOptions(), request);
+          getChannel(), getQRCodeDecodeMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,14 +179,14 @@ public final class QRCodeServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<generated.QRCodeContent> qRCodeDecoder(
+    public com.google.common.util.concurrent.ListenableFuture<generated.QRCodeContent> qRCodeDecode(
         generated.DecodeRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getQRCodeDecoderMethod(), getCallOptions()), request);
+          getChannel().newCall(getQRCodeDecodeMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_QRCODE_DECODER = 0;
+  private static final int METHODID_QRCODE_DECODE = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -205,8 +205,8 @@ public final class QRCodeServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_QRCODE_DECODER:
-          serviceImpl.qRCodeDecoder((generated.DecodeRequest) request,
+        case METHODID_QRCODE_DECODE:
+          serviceImpl.qRCodeDecode((generated.DecodeRequest) request,
               (io.grpc.stub.StreamObserver<generated.QRCodeContent>) responseObserver);
           break;
         default:
@@ -270,7 +270,7 @@ public final class QRCodeServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new QRCodeServiceFileDescriptorSupplier())
-              .addMethod(getQRCodeDecoderMethod())
+              .addMethod(getQRCodeDecodeMethod())
               .build();
         }
       }

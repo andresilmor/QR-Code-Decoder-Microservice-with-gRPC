@@ -35,10 +35,10 @@ public final class QRCodeProtos {
     java.lang.String[] descriptorData = {
       "\n\023QRCodeService.proto\022\006qrCode\"\036\n\rDecodeR" +
       "equest\022\r\n\005image\030\001 \001(\014\" \n\rQRCodeContent\022\017" +
-      "\n\007content\030\001 \001(\t2N\n\rQRCodeService\022=\n\rQRCo" +
-      "deDecoder\022\025.qrCode.DecodeRequest\032\025.qrCod" +
-      "e.QRCodeContentB\033\n\tgeneratedB\014QRCodeProt" +
-      "osP\001b\006proto3"
+      "\n\007content\030\001 \001(\t2M\n\rQRCodeService\022<\n\014QRCo" +
+      "deDecode\022\025.qrCode.DecodeRequest\032\025.qrCode" +
+      ".QRCodeContentB\033\n\tgeneratedB\014QRCodeProto" +
+      "sP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

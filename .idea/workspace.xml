@@ -11,7 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="60c8c8ae-9096-4f69-b0aa-f6196ef3f4b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generated/DecodeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generated/DecodeRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generated/QRCodeContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generated/QRCodeContentOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generated/QRCodeProtos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generated/QRCodeServiceGrpc.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/QRCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/QRCodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/QRCodeService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/QRCodeService.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -7,7 +7,7 @@ option java_package = "generated";  // Name of the package where will be the gen
 option java_outer_classname = "QRCodeProtos"; // Name of the class on the wrapper, not important, default will be the defined on line 3
 
 service QRCodeService {
-  rpc QRCodeDecoder(DecodeRequest) returns (QRCodeContent);
+  rpc QRCodeDecode(DecodeRequest) returns (QRCodeContent);
 }
 
 message DecodeRequest {

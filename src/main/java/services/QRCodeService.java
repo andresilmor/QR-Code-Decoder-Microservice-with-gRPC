@@ -22,7 +22,7 @@ import java.util.List;
 public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
     @Override
-    public void qRCodeDecoder(DecodeRequest request, StreamObserver<QRCodeContent> responseObserver) {
+    public void qRCodeDecode(DecodeRequest request, StreamObserver<QRCodeContent> responseObserver) {
         System.out.println("1");
         ByteString byteStringImage = request.getImage();
 
