@@ -30,8 +30,8 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
         System.out.println("2");
         InputStream is = new ByteArrayInputStream(byteArrayImage);
-        QRCodeContent.Builder response = QRCodeContent.newBuilder();
-
+        //QRCodeContent.Builder response = QRCodeContent.newBuilder();
+        QRCodeContent response;
 
         System.out.println("3");
 
@@ -61,13 +61,23 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
             System.out.println(qrCodesDetected);
             System.out.println("3");
 
-            response.setContent(qrCodesDetected);
+            response = QRCodeContent.newBuilder().setContent(qrCodesDetected).build();
+
+
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+
 
         } catch (IOException e) {
-            response.setContent("{ \"message\" : \"Image.IO.read() error\" }");
+            response = QRCodeContent.newBuilder().setContent("{ \"message\" : \"Image.IO.read() error\" }").build();
             System.out.println("mennn");
+
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+
             throw new RuntimeException(e);
         }
+
 
     }
 
