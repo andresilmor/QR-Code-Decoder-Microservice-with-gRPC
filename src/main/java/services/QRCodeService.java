@@ -50,7 +50,6 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
         //QRCodeContent.Builder response = QRCodeContent.newBuilder();
         QRCodeContent response;
 
-
         try {
             BufferedImage bufferedImage = ImageIO.read(is);
             GrayU8 grayImage = ConvertBufferedImage.convertFrom(bufferedImage, (GrayU8)null);
@@ -63,23 +62,26 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
 
             String qrCodesDetected = "{ \"detections\": [ ";
+
             for (int index = 0; index < detections.size(); index += 1) {
-                if (isJSONValid(detections.get(index).message))
-                    qrCodesDetected += " { \"content\" : " + detections.get(index).message.replace("\n", "").replace("\r", "") + ", ";
+                QrCode detection = detections.get(index);
+
+                if (isJSONValid(detection.message))
+                    qrCodesDetected += " { \"content\" : " + detection.message.replace("\n", "").replace("\r", "") + ", ";
                 else
-                    qrCodesDetected += " { \"content\" : \"" + detections.get(index).message.replace("\n", "").replace("\r", "") + "\", ";
+                    qrCodesDetected += " { \"content\" : \"" + detection.message.replace("\n", "").replace("\r", "") + "\", ";
 
                 // detections.get(index).bounds
                 qrCodesDetected += "\"bounds\" : { ";
 
-                qrCodesDetected += "\"TL\" : { \"x\" : " + detections.get(index).bounds.get(0).x + ", \"y\" : " + detections.get(index).bounds.get(0).y + " },";
-                qrCodesDetected += "\"TR\" : { \"x\" : " + detections.get(index).bounds.get(1).x + ", \"y\" : " + detections.get(index).bounds.get(1).y + " },";
-                qrCodesDetected += "\"BL\" : { \"x\" : " + detections.get(index).bounds.get(3).x + ", \"y\" : " + detections.get(index).bounds.get(3).y + " },";
-                qrCodesDetected += "\"BR\" : { \"x\" : " + detections.get(index).bounds.get(2).x + ", \"y\" : " + detections.get(index).bounds.get(2).y + " }";
+                qrCodesDetected += "\"TL\" : { \"x\" : " + detection.bounds.get(0).x + ", \"y\" : " + detection.bounds.get(0).y + " },";
+                qrCodesDetected += "\"TR\" : { \"x\" : " + detection.bounds.get(1).x + ", \"y\" : " + detection.bounds.get(1).y + " },";
+                qrCodesDetected += "\"BL\" : { \"x\" : " + detection.bounds.get(3).x + ", \"y\" : " + detection.bounds.get(3).y + " },";
+                qrCodesDetected += "\"BR\" : { \"x\" : " + detection.bounds.get(2).x + ", \"y\" : " + detection.bounds.get(2).y + " }";
 
                 qrCodesDetected += " }, ";
 
-                qrCodesDetected += "\"size\" : { \"width\" : "+ (detections.get(index).bounds.get(1).x -  detections.get(index).bounds.get(0).x) + ", \"height\" : " + (detections.get(index).bounds.get(2).y -  detections.get(index).bounds.get(0).y) + " } } ";
+                qrCodesDetected += "\"size\" : { \"width\" : "+ (detection.bounds.get(1).x -  detection.bounds.get(0).x) + ", \"height\" : " + (detection.bounds.get(2).y -  detection.bounds.get(0).y) + " } } ";
 
                 if (index + 1 < detections.size())
                     qrCodesDetected += ", ";
@@ -88,7 +90,7 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
             qrCodesDetected += " ] }";
 
-            System.out.println(qrCodesDetected.trim());
+            //System.out.println(qrCodesDetected.trim());
 
 
             response = QRCodeContent.newBuilder().setContent(qrCodesDetected.trim()).build();

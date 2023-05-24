@@ -9,6 +9,9 @@ import boofcv.struct.image.GrayU8;
 import com.google.protobuf.ByteString;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import services.QRCodeService;
 
 import javax.imageio.ImageIO;
@@ -27,8 +30,8 @@ public class ApplicationServer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-    /*
-        BufferedImage input = UtilImageIO.loadImageNotNull(UtilIO.pathExample("qrCode_json.png "));
+/*
+        BufferedImage input = UtilImageIO.loadImageNotNull(UtilIO.pathExample("qrCode_multiple.png "));
 
         // Testing
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -62,36 +65,36 @@ public class ApplicationServer {
         g2.setColor(Color.GREEN);
         g2.setStroke(new BasicStroke(strokeWidth));
 
-        String qrCodesDedtected = "{ \"detections\": [ ";
+        String qrCodesDetected = "{ \"detections\": [ ";
 
-        for (int index = 0; index < detections.size(); index += 1) {
-            String content;
+            for (int index = 0; index < detections.size(); index += 1) {
+                QrCode detection = detections.get(index);
 
-            if (isJSONValid(detections.get(index).message))
-                qrCodesDedtected += " { \"content\" : " + detections.get(index).message.replace("\n", "").replace("\r", "") + ", ";
-            else
-                qrCodesDedtected += " { \"content\" : \"" + detections.get(index).message.replace("\n", "").replace("\r", "") + "\", ";
+                if (isJSONValid(detection.message))
+                    qrCodesDetected += " { \"content\" : " + detection.message.replace("\n", "").replace("\r", "") + ", ";
+                else
+                    qrCodesDetected += " { \"content\" : \"" + detection.message.replace("\n", "").replace("\r", "") + "\", ";
 
-            // detections.get(index).bounds
-            qrCodesDedtected += "\"bounds\" : { ";
+                // detections.get(index).bounds
+                qrCodesDetected += "\"bounds\" : { ";
 
-            qrCodesDedtected += "\"TL\" : { \"x\" : " + detections.get(index).bounds.get(0).x + ", \"y\" : " + detections.get(index).bounds.get(0).y + " },";
-            qrCodesDedtected += "\"TR\" : { \"x\" : " + detections.get(index).bounds.get(1).x + ", \"y\" : " + detections.get(index).bounds.get(1).y + " },";
-            qrCodesDedtected += "\"BL\" : { \"x\" : " + detections.get(index).bounds.get(3).x + ", \"y\" : " + detections.get(index).bounds.get(3).y + " },";
-            qrCodesDedtected += "\"BR\" : { \"x\" : " + detections.get(index).bounds.get(2).x + ", \"y\" : " + detections.get(index).bounds.get(2).y + " }";
+                qrCodesDetected += "\"TL\" : { \"x\" : " + detection.bounds.get(0).x + ", \"y\" : " + detection.bounds.get(0).y + " },";
+                qrCodesDetected += "\"TR\" : { \"x\" : " + detection.bounds.get(1).x + ", \"y\" : " + detection.bounds.get(1).y + " },";
+                qrCodesDetected += "\"BL\" : { \"x\" : " + detection.bounds.get(3).x + ", \"y\" : " + detection.bounds.get(3).y + " },";
+                qrCodesDetected += "\"BR\" : { \"x\" : " + detection.bounds.get(2).x + ", \"y\" : " + detection.bounds.get(2).y + " }";
 
-            qrCodesDedtected += " }, ";
+                qrCodesDetected += " }, ";
 
-            qrCodesDedtected += "\"size\" : { \"width\" : "+ (detections.get(index).bounds.get(1).x -  detections.get(index).bounds.get(0).x) + ", \"height\" : " + (detections.get(index).bounds.get(2).y -  detections.get(index).bounds.get(0).y) + " } } ";
+                qrCodesDetected += "\"size\" : { \"width\" : "+ (detection.bounds.get(1).x -  detection.bounds.get(0).x) + ", \"height\" : " + (detection.bounds.get(2).y -  detection.bounds.get(0).y) + " } } ";
 
-            if (index + 1 < detections.size())
-                qrCodesDedtected += ", ";
+                if (index + 1 < detections.size())
+                    qrCodesDetected += ", ";
 
-        }
+            }
 
-        qrCodesDedtected += " ] }";
+            qrCodesDetected += " ] }";
 
-        System.out.println(qrCodesDedtected.trim());
+        System.out.println(qrCodesDetected.trim());
 
         // List of objects it thinks might be a QR Code but failed for various reasons
         List<QrCode> failures = detector.getFailures();
@@ -102,7 +105,7 @@ public class ApplicationServer {
                 continue;
 
         }
-        */
+*/
 
 
         Server server = ServerBuilder.forPort(50060).addService(new QRCodeService()).build();
