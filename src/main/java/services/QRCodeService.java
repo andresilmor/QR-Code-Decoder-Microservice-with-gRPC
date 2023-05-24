@@ -63,12 +63,11 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
 
             String qrCodesDetected = "{ \"detections\": [ ";
-
             for (int index = 0; index < detections.size(); index += 1) {
                 if (isJSONValid(detections.get(index).message))
-                    qrCodesDetected += " { \"content\" : " + detections.get(index).message + ", ";
+                    qrCodesDetected += " { \"content\" : " + detections.get(index).message.replace("\n", "").replace("\r", "") + ", ";
                 else
-                    qrCodesDetected += " { \"content\" : \"" + detections.get(index).message + "\", ";
+                    qrCodesDetected += " { \"content\" : \"" + detections.get(index).message.replace("\n", "").replace("\r", "") + "\", ";
 
                 // detections.get(index).bounds
                 qrCodesDetected += "\"bounds\" : { ";

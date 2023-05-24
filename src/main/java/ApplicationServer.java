@@ -21,14 +21,13 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.logging.Logger;
 
-
 public class ApplicationServer {
     private static final Logger logger = Logger.getLogger(ApplicationServer.class.getName());
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        /*
+    /*
         BufferedImage input = UtilImageIO.loadImageNotNull(UtilIO.pathExample("qrCode_json.png "));
 
         // Testing
@@ -69,9 +68,9 @@ public class ApplicationServer {
             String content;
 
             if (isJSONValid(detections.get(index).message))
-                qrCodesDedtected += " { \"content\" : " + detections.get(index).message + ", ";
+                qrCodesDedtected += " { \"content\" : " + detections.get(index).message.replace("\n", "").replace("\r", "") + ", ";
             else
-                qrCodesDedtected += " { \"content\" : \"" + detections.get(index).message + "\", ";
+                qrCodesDedtected += " { \"content\" : \"" + detections.get(index).message.replace("\n", "").replace("\r", "") + "\", ";
 
             // detections.get(index).bounds
             qrCodesDedtected += "\"bounds\" : { ";
