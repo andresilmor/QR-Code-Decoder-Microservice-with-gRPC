@@ -23,17 +23,15 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
     @Override
     public void qRCodeDecode(DecodeRequest request, StreamObserver<QRCodeContent> responseObserver) {
-        System.out.println("1");
+
         ByteString byteStringImage = request.getImage();
 
         byte[] byteArrayImage = byteStringImage.toByteArray();
 
-        System.out.println("2");
         InputStream is = new ByteArrayInputStream(byteArrayImage);
         //QRCodeContent.Builder response = QRCodeContent.newBuilder();
         QRCodeContent response;
 
-        System.out.println("3");
 
         try {
             BufferedImage bufferedImage = ImageIO.read(is);
@@ -45,12 +43,23 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
             detector.process(grayImage);
             List<QrCode> detections = detector.getDetections();
 
-            System.out.println("4");
 
             String qrCodesDetected = "{ \"detections\": [ ";
 
             for (int index = 0; index < detections.size(); index += 1) {
-                qrCodesDetected += " { \"content\" : \"" + detections.get(index).message + "\" } ";
+                qrCodesDetected += " { \"content\" : \"" + detections.get(index).message + "\", ";
+                // detections.get(index).bounds
+                qrCodesDetected += "\"bounds\" : { ";
+
+                qrCodesDetected += "\"TL\" : { \"x\" : " + detections.get(index).bounds.get(0).x + ", \"y\" : " + detections.get(index).bounds.get(0).y + " },";
+                qrCodesDetected += "\"TR\" : { \"x\" : " + detections.get(index).bounds.get(1).x + ", \"y\" : " + detections.get(index).bounds.get(1).y + " },";
+                qrCodesDetected += "\"BL\" : { \"x\" : " + detections.get(index).bounds.get(3).x + ", \"y\" : " + detections.get(index).bounds.get(3).y + " },";
+                qrCodesDetected += "\"BR\" : { \"x\" : " + detections.get(index).bounds.get(2).x + ", \"y\" : " + detections.get(index).bounds.get(2).y + " }";
+
+                qrCodesDetected += " }, ";
+
+                qrCodesDetected += "\"size\" : { \"width\" : "+ (detections.get(index).bounds.get(1).x -  detections.get(index).bounds.get(0).x) + ", \"height\" : " + (detections.get(index).bounds.get(2).y -  detections.get(index).bounds.get(0).y) + " } } ";
+
                 if (index + 1 < detections.size())
                     qrCodesDetected += ", ";
 
@@ -58,10 +67,10 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 
             qrCodesDetected += " ] }";
 
-            System.out.println(qrCodesDetected);
-            System.out.println("3");
+            System.out.println(qrCodesDetected.trim());
 
-            response = QRCodeContent.newBuilder().setContent(qrCodesDetected).build();
+
+            response = QRCodeContent.newBuilder().setContent(qrCodesDetected.trim()).build();
 
 
             responseObserver.onNext(response);

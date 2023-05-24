@@ -54,6 +54,8 @@ public class ApplicationServer {
         // Gets a list of all the qr codes it could successfully detect and decode
         List<QrCode> detections = detector.getDetections();
 
+
+
         Graphics2D g2 = input.createGraphics();
         int strokeWidth = Math.max(4, input.getWidth()/200); // in large images the line can be too thin
         g2.setColor(Color.GREEN);
@@ -62,7 +64,20 @@ public class ApplicationServer {
         String qrCodesDedtected = "{ \"detections\": [ ";
 
         for (int index = 0; index < detections.size(); index += 1) {
-            qrCodesDedtected += " { \"content\" : \"" + detections.get(index).message + "\" } ";
+
+            qrCodesDedtected += " { \"content\" : \"" + detections.get(index).message + "\", ";
+            // detections.get(index).bounds
+            qrCodesDedtected += "\"bounds\" : { ";
+
+            qrCodesDedtected += "\"TL\" : { \"x\" : " + detections.get(index).bounds.get(0).x + ", \"y\" : " + detections.get(index).bounds.get(0).y + " },";
+            qrCodesDedtected += "\"TR\" : { \"x\" : " + detections.get(index).bounds.get(1).x + ", \"y\" : " + detections.get(index).bounds.get(1).y + " },";
+            qrCodesDedtected += "\"BL\" : { \"x\" : " + detections.get(index).bounds.get(3).x + ", \"y\" : " + detections.get(index).bounds.get(3).y + " },";
+            qrCodesDedtected += "\"BR\" : { \"x\" : " + detections.get(index).bounds.get(2).x + ", \"y\" : " + detections.get(index).bounds.get(2).y + " }";
+
+            qrCodesDedtected += " }, ";
+
+            qrCodesDedtected += "\"size\" : { \"width\" : "+ (detections.get(index).bounds.get(1).x -  detections.get(index).bounds.get(0).x) + ", \"height\" : " + (detections.get(index).bounds.get(2).y -  detections.get(index).bounds.get(0).y) + " } } ";
+
             if (index + 1 < detections.size())
                 qrCodesDedtected += ", ";
 
@@ -70,7 +85,7 @@ public class ApplicationServer {
 
         qrCodesDedtected += " ] }";
 
-        System.out.println(qrCodesDedtected);
+        System.out.println(qrCodesDedtected.trim());
 
         // List of objects it thinks might be a QR Code but failed for various reasons
         List<QrCode> failures = detector.getFailures();

@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="60c8c8ae-9096-4f69-b0aa-f6196ef3f4b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApplicationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApplicationServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/QRCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/QRCodeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
