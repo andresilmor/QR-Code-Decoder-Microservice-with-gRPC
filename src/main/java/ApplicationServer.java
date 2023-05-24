@@ -20,30 +20,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.logging.Logger;
-import org.json.*;
+
 
 public class ApplicationServer {
     private static final Logger logger = Logger.getLogger(ApplicationServer.class.getName());
 
 
-    public static boolean isJSONValid(String test) {
-        try {
-            new JSONObject(test);
-        } catch (JSONException ex) {
-            // edited, to include @Arthur's comment
-            // e.g. in case JSONArray is valid as well...
-            try {
-                new JSONArray(test);
-            } catch (JSONException ex1) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) throws IOException, InterruptedException {
 
-
+        /*
         BufferedImage input = UtilImageIO.loadImageNotNull(UtilIO.pathExample("qrCode_json.png "));
 
         // Testing
@@ -118,7 +103,7 @@ public class ApplicationServer {
                 continue;
 
         }
-
+        */
 
 
         Server server = ServerBuilder.forPort(50060).addService(new QRCodeService()).build();

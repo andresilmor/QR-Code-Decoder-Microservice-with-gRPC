@@ -11,6 +11,9 @@ import generated.DecodeRequest;
 import generated.QRCodeContent;
 import generated.QRCodeServiceGrpc;
 import io.grpc.stub.StreamObserver;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -20,6 +23,21 @@ import java.io.InputStream;
 import java.util.List;
 
 public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
+
+    public boolean isJSONValid(String test) {
+        try {
+            new JSONObject(test);
+        } catch (JSONException ex) {
+            // edited, to include @Arthur's comment
+            // e.g. in case JSONArray is valid as well...
+            try {
+                new JSONArray(test);
+            } catch (JSONException ex1) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     @Override
     public void qRCodeDecode(DecodeRequest request, StreamObserver<QRCodeContent> responseObserver) {
@@ -47,7 +65,11 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
             String qrCodesDetected = "{ \"detections\": [ ";
 
             for (int index = 0; index < detections.size(); index += 1) {
-                qrCodesDetected += " { \"content\" : " + detections.get(index).message + ", ";
+                if (isJSONValid(detections.get(index).message))
+                    qrCodesDetected += " { \"content\" : " + detections.get(index).message + ", ";
+                else
+                    qrCodesDetected += " { \"content\" : \"" + detections.get(index).message + "\", ";
+
                 // detections.get(index).bounds
                 qrCodesDetected += "\"bounds\" : { ";
 
