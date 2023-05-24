@@ -30,7 +30,7 @@ public class ApplicationServer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-/*
+        /*
         BufferedImage input = UtilImageIO.loadImageNotNull(UtilIO.pathExample("qrCode_multiple.png "));
 
         // Testing
@@ -53,10 +53,20 @@ public class ApplicationServer {
 //		config.considerTransposed = false; // by default, it will consider incorrectly encoded markers. Faster if false
         QrCodeDetector<GrayU8> detector = FactoryFiducial.qrcode(config, GrayU8.class);
 
-        detector.process(gray);
+        byte tentatives = 0;
+        List<QrCode> detections;
+        do {
+            detector.process(gray);
+            detections = detector.getDetections();
+            System.out.println("Trying");
 
-        // Gets a list of all the qr codes it could successfully detect and decode
-        List<QrCode> detections = detector.getDetections();
+
+            if (tentatives++ >= 10)
+                break;
+
+        } while (detections.size() <= 0);
+
+
 
 
 
@@ -105,7 +115,7 @@ public class ApplicationServer {
                 continue;
 
         }
-*/
+        */
 
 
         Server server = ServerBuilder.forPort(50060).addService(new QRCodeService()).build();
