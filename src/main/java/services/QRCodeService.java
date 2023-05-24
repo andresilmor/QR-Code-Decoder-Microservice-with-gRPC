@@ -57,12 +57,12 @@ public class QRCodeService extends QRCodeServiceGrpc.QRCodeServiceImplBase {
 //		config.considerTransposed = false; // by default, it will consider incorrectly encoded markers. Faster if false
             QrCodeDetector<GrayU8> detector = FactoryFiducial.qrcode(config, GrayU8.class);
 
-            
+
             detector.process(grayImage);
             List<QrCode> detections = detector.getDetections();
 
 
-            String qrCodesDetected = "{ \"detections\": [ ";
+            String qrCodesDetected = "{ \"qrCodes\": [ ";
 
             for (int index = 0; index < detections.size(); index += 1) {
                 QrCode detection = detections.get(index);
